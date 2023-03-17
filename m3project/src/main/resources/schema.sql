@@ -1,7 +1,9 @@
 create table public.users (
     id int auto_increment,
+    name varchar(100) not null,
     email varchar(255) not null,
-    created_at timestamp default current_timestamp,
+    phone varchar(30),
+    created_at timestamp not null default current_timestamp,
     primary key (id)
 );
 
@@ -12,5 +14,15 @@ create table public.tickets (
     concert_id int,
     user_id int,
     seat_id varchar(255),
+    primary key (id)
+);
+
+create table public.concerts (
+    id int auto_increment,
+    artist varchar(255),
+    concert_date datetime,  
+    tickets_available int,
+    ticket_price float, 
+    created_at timestamp default current_timestamp,
     primary key (id)
 );
